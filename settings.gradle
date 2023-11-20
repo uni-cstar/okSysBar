@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "oksysbar"
+rootProject.name = "okSysBar"
 include ':app'
-include ':oksysbar'
+include ':okSysBar'
