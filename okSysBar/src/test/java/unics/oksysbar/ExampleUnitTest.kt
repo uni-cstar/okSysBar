@@ -1,6 +1,6 @@
-package unics.sysbar
+package droid.systemui
 
-import org.junit.Assert.assertEquals
+import org.junit.Assert.*
 import org.junit.Test
 
 /**

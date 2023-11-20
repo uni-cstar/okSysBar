@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--fake status bar id-->
+    <item name="oksysbar_faker_status_bar_id" type="id" />
+
+
+</resources>
