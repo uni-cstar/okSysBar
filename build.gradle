@@ -1,0 +1,22 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+//参考资料：https://blog.csdn.net/ZhaiKun68/article/details/133502488
+plugins {
+    //对应classpath 'com.android.tools.build:gradle:7.2.1'
+    id 'com.android.application' version '7.2.1' apply false
+    id 'com.android.library' version '7.2.1' apply false
+
+//    //对应classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
+//    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+    //classpath 'com.vanniktech:gradle-maven-publish-plugin:0.18.0'
+    id "com.vanniktech.maven.publish" version "0.18.0"
+}
+//buildscript {
+//    dependencies {
+////        classpath "org.jetbrains.dokka:dokka-gradle-plugin:1.6.21"
+//        classpath 'com.vanniktech:gradle-maven-publish-plugin:0.18.0'
+//    }
+//}
+
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
