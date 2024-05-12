@@ -12,7 +12,7 @@ public class ImmersiveBarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SystemBar.applyImmersiveNavigationBar(this);
+        SystemBar.setImmersiveNavigationBar(this);
     }
 
 }

@@ -13,7 +13,7 @@ public class TranslucentBarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SystemBar.applyStatusBarColor(this, Color.BLUE);
+        SystemBar.setStatusBarColor(this, Color.BLUE);
     }
 
 }

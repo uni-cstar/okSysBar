@@ -20,24 +20,24 @@ public class LauncherActivity extends AppCompatActivity{
     public void onViewClick(View view){
         switch (view.getId()){
             case R.id.translucentBtn:
-                SystemBar.applyStatusBarColor(this, Color.BLUE);
-//                SystemBar.applyStatusBarLightMode(this);
+                SystemBar.setStatusBarColor(this, Color.BLUE);
+//                SystemBar.setStatusBarLightMode(this);
                 break;
             case R.id.translucentBtn2:
-                SystemBar.applyStatusBarColor(this, Color.RED);
-//                SystemBar.applyStatusBarDarkMode(this);
+                SystemBar.setStatusBarColor(this, Color.RED);
+//                SystemBar.setStatusBarDarkMode(this);
                 break;
             case R.id.transBtn:
-                SystemBar.applyImmersiveSystemBar(this);
-                SystemBar.applyStatusBarLightMode(this);
+                SystemBar.setImmersiveSystemBar(this);
+                SystemBar.setStatusBarLightMode(this);
                 break;
             case R.id.transBtn2:
-                SystemBar.applyStatusBarColor(this, Color.YELLOW);
-                SystemBar.applyStatusBarLightMode(this);
+                SystemBar.setStatusBarColor(this, Color.YELLOW);
+                SystemBar.setStatusBarLightMode(this);
                 break;
             case R.id.transBtn3:
-                SystemBar.applyStatusBarColor(this, Color.RED);
-                SystemBar.applyStatusBarDarkMode(this);
+                SystemBar.setStatusBarColor(this, Color.RED);
+                SystemBar.setStatusBarDarkMode(this);
                 break;
         }
 
