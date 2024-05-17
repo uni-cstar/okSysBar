@@ -22,5 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ColorStatusBarActivity"
+            android:theme="@style/Theme.App.Immersive"/>
+        <activity android:name=".ColorNavigationBarActivity"
+            android:theme="@style/Theme.App.Immersive"/>
+        <activity android:name=".StatusBarModeActivity"/>
+        <activity android:name=".ImmersiveBarActivity"
+            android:theme="@style/Theme.App.Immersive"/>
+
     </application>
 </manifest>

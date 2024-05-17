@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 /**
  * Created by Lucio on 2020-11-15.
  */
-class SysBarUi19 implements SysBarUI {
+class SysBarUI19 implements SysBarUI {
 
     private static final int fakeStatusBarId = R.id.ucs_faker_status_bar_id;
 
@@ -24,8 +24,9 @@ class SysBarUi19 implements SysBarUI {
         doImmersiveStatusBar(activity, color1, color2, ratio);
         ViewGroup contentView = activity.findViewById(android.R.id.content);
         View userRoot = contentView.getChildAt(0);
-        if (userRoot != null)
+        if (userRoot != null){
             userRoot.setFitsSystemWindows(true);
+        }
     }
 
     @Override
@@ -77,7 +78,7 @@ class SysBarUi19 implements SysBarUI {
         //查找或添加模拟的状态栏View
         View statusBar = findOrAddNewFakeStatusBar(activity);
         //计算显示的颜色
-        int blendColor = SystemBar.blendColor(color1, color2, ratio);
+        int blendColor = OkSysBar.blendColor(color1, color2, ratio);
         statusBar.setBackgroundColor(blendColor);
     }
 }

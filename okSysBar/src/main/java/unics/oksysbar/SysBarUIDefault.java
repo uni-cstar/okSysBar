@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 /**
  * Created by Lucio on 2020-11-15.
  */
-class SysBarUiDefault implements SysBarUI {
+class SysBarUIDefault implements SysBarUI {
     @Override
     public void setImmersiveStatusBar(@NonNull Activity activity, int color1, int color2, float ratio) {
 

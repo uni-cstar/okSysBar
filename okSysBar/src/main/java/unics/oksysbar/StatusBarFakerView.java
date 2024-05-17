@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 /**
  * Created by Lucio on 2019/6/6.
@@ -17,7 +16,6 @@ import androidx.annotation.RequiresApi;
  */
 public class StatusBarFakerView extends View {
 
-    private static final String TAG = "FakeStatusBar";
     private static int availableStatusBarHeight = 0;
 
     public StatusBarFakerView(Context context) {
@@ -31,40 +29,6 @@ public class StatusBarFakerView extends View {
     public StatusBarFakerView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public StatusBarFakerView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-    }
-
-    /**
-     * 获取状态栏高度;通过资源读取状态栏高度
-     */
-    public static int getStatusBarHeight(Context ctx) {
-        Resources res = ctx.getApplicationContext().getResources();
-        try {
-            @SuppressLint("InternalInsetResource") int resourceId = res.getIdentifier("status_bar_height", "dimen", "android");
-            if (resourceId > 0) {
-                return res.getDimensionPixelSize(resourceId);
-            }
-        } catch (Resources.NotFoundException e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
-
-    public static int getAvailableStatusBarHeight(Context ctx) {
-        if (availableStatusBarHeight == 0) {
-            availableStatusBarHeight = getStatusBarHeight(ctx);
-            if (availableStatusBarHeight == 0 && Build.VERSION.SDK_INT >= 19) {
-                //如果获取系统状态栏高度失败，并且设备系统大于19，则默认25dp
-                availableStatusBarHeight =
-                        (int) (ctx.getApplicationContext().getResources().getDisplayMetrics().density * 25);
-            }
-        }
-        return availableStatusBarHeight;
-    }
-
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -89,24 +53,56 @@ public class StatusBarFakerView extends View {
     }
 
     private int getMeasureSize(int size, int measureSpec, String tag) {
-        int result = 0;
+        int result;
         int specMode = MeasureSpec.getMode(measureSpec);
         int specSize = MeasureSpec.getSize(measureSpec);
         if (specMode == MeasureSpec.EXACTLY) {
             result = specSize;
-            log("$tag:[EXACTLY] width=$result");
+            if (OkSysBar.DEBUG) {
+                Log.e("OkSysBar", tag + ": [EXACTLY] size=" + size);
+            }
         } else if (specMode == View.MeasureSpec.AT_MOST) {
             result = Math.min(size, specSize);
-            log("$tag:[AT_MOST] width=$result");
+            if (OkSysBar.DEBUG) {
+                Log.e("OkSysBar", tag + ": [AT_MOST] size=" + size);
+            }
         } else {
             result = size;
-            log("$tag:[UNSPECIFIED] width=$result");
+            if (OkSysBar.DEBUG) {
+                Log.e("OkSysBar", tag + ": [UNSPECIFIED] size=" + size);
+            }
         }
         return result;
     }
 
-    private void log(String msg) {
-        Log.d(TAG, msg);
+    /**
+     * 获取状态栏高度;通过资源读取状态栏高度
+     */
+    public static int getStatusBarHeight(Context ctx) {
+        Resources res = ctx.getResources();
+        try {
+            @SuppressLint("InternalInsetResource") int resourceId = res.getIdentifier("status_bar_height", "dimen", "android");
+            if (resourceId > 0) {
+                return res.getDimensionPixelSize(resourceId);
+            }
+        } catch (Resources.NotFoundException e) {
+            if (OkSysBar.DEBUG) {
+                Log.e("OkSysBar", "StatusBarFakerView:getStatusBarHeight error.", e);
+            }
+        }
+        return 0;
+    }
+
+    public static int getAvailableStatusBarHeight(Context ctx) {
+        if (availableStatusBarHeight == 0) {
+            availableStatusBarHeight = getStatusBarHeight(ctx);
+            if (availableStatusBarHeight == 0 && Build.VERSION.SDK_INT >= 19) {
+                //如果获取系统状态栏高度失败，并且设备系统大于19，则默认25dp
+                availableStatusBarHeight =
+                        (int) (ctx.getResources().getDisplayMetrics().density * 25);
+            }
+        }
+        return availableStatusBarHeight;
     }
 
 }

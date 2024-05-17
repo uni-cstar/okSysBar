@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 /**
  * Create by luochao
  * on 2023/11/20
+ * StatusBar:状态栏
+ * NavigationBar:底部虚拟导航栏
+ * SystemBar：即状态栏和虚拟导航栏
  */
 public interface SysBarUI {
 
@@ -76,7 +79,6 @@ public interface SysBarUI {
         setImmersiveNavigationBar(activity, Color.TRANSPARENT);
     }
 
-
     /**
      * 设置沉浸式导航栏（即导航栏会覆盖内容布局）
      *
@@ -85,7 +87,6 @@ public interface SysBarUI {
     default void setImmersiveNavigationBar(@NonNull Activity activity, @ColorInt int color) {
         setImmersiveNavigationBar(activity, color, Color.TRANSPARENT, 0f);
     }
-
 
     /**
      * 设置沉浸式导航栏（即导航栏会覆盖内容布局），并根据给定比率混合两种颜色，将得到的颜色应用到状态栏背景，如果比率为0，则使用[color1],如果比率为0.5,则均匀混合两种颜色，如果比率为1，则使用[color2]
@@ -110,7 +111,6 @@ public interface SysBarUI {
     default void setNavigationBarColor(@NonNull Activity activity, @ColorInt int color) {
         setNavigationBarColor(activity, color, Color.TRANSPARENT, 0f);
     }
-
 
     /**
      * 设置Navigation Bar颜色
@@ -142,8 +142,8 @@ public interface SysBarUI {
     /**
      * 设置沉浸式系统栏（即状态栏和导航栏会覆盖布局内容），并根据给定比率混合两种颜色，将得到的颜色应用到状态栏和导航栏背景，如果比率为0，则使用[color1],如果比率为0.5,则均匀混合两种颜色，如果比率为1，则使用[color2]
      *
-     * @param color1
-     * @param color2
+     * @param color1 如果比率为0，则完全使用该颜色
+     * @param color2 如果比例为1，则完全使用该颜色
      * @param ratio  比率
      */
     void setImmersiveSystemBar(
@@ -153,7 +153,7 @@ public interface SysBarUI {
             @FloatRange(from = 0.0, to = 1.0) float ratio
     );
 
-    /*
+    /**
      * 设置System Bar的颜色：即同时设置Status Bar和Navigation Bar的背景颜色
      */
     default void setSystemBarColor(@NonNull Activity activity,
@@ -182,4 +182,5 @@ public interface SysBarUI {
      */
     default void setStatusBarDarkMode(@NonNull Activity activity) {
     }
+
 }

@@ -8,47 +8,52 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/colorStatusBar"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onViewClick"
-            android:text="状态栏颜色" />
+            android:layout_marginBottom="20dp"
+            android:text="Tips：状态栏设置Dark/Light模式的同时也可以改变状态栏的背景色或者设置为透明状态栏" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DarkMode:即状态栏背景深色，状态栏文字浅色" />
 
         <Button
-            android:id="@+id/immersiveStatusBar"
+            android:id="@+id/darkMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onViewClick"
-            android:text="透明状态栏" />
+            android:text="DarkMode" />
 
         <Button
-            android:id="@+id/colorNavigationBar"
+            android:id="@+id/darkModeRed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onViewClick"
-            android:text="导航栏颜色" />
+            android:text="DarkMode（红色$黄色0.5混色背景）" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LightMode:即状态栏背景浅色，状态栏文字深色" />
 
         <Button
-            android:id="@+id/immersiveNavigationBar"
+            android:id="@+id/lightMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onViewClick"
-            android:text="透明导航栏" />
+            android:text="LightMode" />
 
         <Button
-            android:id="@+id/immersiveSysBar"
+            android:id="@+id/lightMode2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onViewClick"
-            android:text="透明状态栏和导航栏" />
+            android:text="LightMode（透明状态栏）" />
 
-        <Button
-            android:id="@+id/statusBarMode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onViewClick"
-            android:text="状态栏模式" />
+
     </LinearLayout>
 
 </ScrollView>

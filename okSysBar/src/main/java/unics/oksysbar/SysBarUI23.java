@@ -1,22 +1,22 @@
 package unics.oksysbar;
 
-
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
+
 /**
  * Created by Lucio on 2020-11-15.
  * Android 6.1开始提供了可以控制状态栏模式，以解决状态栏颜色为亮色时的体验（即状态栏背景为白色、状态栏文字也为白色时无法看清楚文字的问题；）
  */
 @TargetApi(23)
-class SysBarUi23 extends SysBarUi21 {
+class SysBarUI23 extends SysBarUI21 {
 
     @Override
-    public void setStatusBarLightMode(Activity activity) {
+    public void setStatusBarLightMode(@NonNull Activity activity) {
         super.setStatusBarLightMode(activity);
         ensureModeFlagEnable(activity);
         View decorView = activity.getWindow().getDecorView();
@@ -24,7 +24,7 @@ class SysBarUi23 extends SysBarUi21 {
     }
 
     @Override
-    public void setStatusBarDarkMode(Activity activity) {
+    public void setStatusBarDarkMode(@NonNull Activity activity) {
         super.setStatusBarDarkMode(activity);
         View decorView = activity.getWindow().getDecorView();
         decorView.setSystemUiVisibility(decorView.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
