@@ -4,6 +4,7 @@ plugins {
 
 android {
     compileSdk 32
+    namespace 'unics.sysbar'
 
     defaultConfig {
         applicationId "unics.sysbar"

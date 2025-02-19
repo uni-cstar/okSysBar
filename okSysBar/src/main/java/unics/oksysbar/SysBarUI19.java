@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
  */
 class SysBarUI19 implements SysBarUI {
 
-    private static final int fakeStatusBarId = R.id.ucs_faker_status_bar_id;
+    private static final int fakeStatusBarId = R.id.oksysbar_faker_status_bar_id;
 
     @Override
     public void setImmersiveStatusBar(@NonNull Activity activity, int color1, int color2, float ratio) {

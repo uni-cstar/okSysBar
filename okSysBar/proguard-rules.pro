@@ -19,10 +19,3 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-
--keepattributes *Annotation*
-# for systemui
--keep public class unics.oksysbar.**{
-    public *;
-    protected * ;
-}
